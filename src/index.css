@@ -1,13 +1,315 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+@font-face {
+    font-family: 'MyCustomFont';
+    src: url('fonts/HelveticaNeueLTPro-Md.woff2') format('woff2'),
+    url('fonts/HelveticaNeueLTPro-Th.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+body {
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+    font-family: 'MyCustomFont', sans-serif ;
+}
+
+/*code {*/
+/*  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',*/
+/*    monospace;*/
+/*}*/
+ width
+* {
+    box-sizing: border-box;
+}
+.root {
+    height: 100%;
+    display: flex; /* Nếu muốn các div con xếp dọc */
+}
+::-webkit-scrollbar {
+    width: 7px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: #f1f1f1 ;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #AEADAD;
+    border-radius: 5px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+input[type="radio"].custom-radio {
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border: 2px solid black;
+    outline: none;
+    position: relative; /* Để dễ dàng căn chỉnh hình ảnh */
+    background-color: white; /* Màu nền mặc định */
+    cursor: pointer;
+    display: flex; /* Dùng Flexbox để căn giữa hình ảnh */
+}
+
+input[type="radio"].custom-radio:checked {
+    background-image: url('assets/black-circle.svg') ;
+    background-position: center; /* Đảm bảo hình ảnh nằm ở giữa */
+    background-repeat: no-repeat;
+    background-size: 50%;
+}
+
+input.hub-name::placeholder,
+input.hub-serialnumber::placeholder{
+    font-weight: 600;
+}
+
+svg {
+    transform: rotate(-90deg);
+}
+.in-text{
+    transform: rotate(90deg);
+}
+.circle-out{
+    stroke-dasharray: 502.656; /* (2PI * 40px) */
+    stroke-dashoffset: 502.656;
+    animation: offsettozero 5s linear forwards;
+}
+.circle-in{
+    stroke-dasharray: 376.992; /* (2PI * 40px) */
+    stroke-dashoffset: 376.992;
+    animation: offsettozero 5s linear forwards;
+}
+
+@keyframes offsettozero {
+    to {
+        stroke-dashoffset: 0%;
+    }
+}
+
+/*#one{*/
+/*    filter: hue-rotate(150deg);*/
+/*}*/
+
+/*.design_radio{*/
+/*    accent-color:black;*/
+/*}*/
+
+
+/*input[type="radio"]:focus {*/
+/*    box-shadow: 0 0 0 7px rgba(0, 0, 0, 0.23); !* Hiệu ứng focus *!*/
+/*}*/
+
+/*input[type="radio"]:hover {*/
+/*    border-color: #2563eb; !* Viền màu xanh khi hover *!*/
+/*}*/
+
+@media screen and (max-width: 480px ){
+    .container-welcome{
+       margin: 7vw;
+    }
+    .container-welcome div h1{
+        font-size: 50px;
+    }
+    .container-welcome div img{
+        width: 90px;
+    }
+    .container-login{
+        margin-left: 5vw;
+        margin-right: 5vw;
+        flex-direction: column;
+        align-items: center;
+    }
+    .container-login h1{
+        font-size: 45px;
+        margin-bottom: 2rem;
+    }
+    .container-login ul{
+        width: 320px;
+    }
+    .container-register{
+        flex-direction: column;
+        justify-items: center;
+        align-items: center;
+    }
+    .register-text{
+        font-size: 30px;
+    }
+    .register-btn{
+        font-size: 20px;
+    }
+    .logo_black{
+        width: 80px;
+    }
+    .circle-restarting, .circle-disabled, .custom-radio{
+        min-width: 20px;
+        min-height: 20px;
+    }
+    .form-name,
+    .form-serialnumber{
+        flex-direction: column;
+    }
+    .form-name label,
+    .form-serialnumber label,
+    .form-name div,
+    .form-serialnumber div{
+        width: auto;
+    }
+    .registration-btn{
+        margin-left: 20px;
+    }
+    .container-active div{
+        flex-direction: column-reverse;
+        justify-items: center;
+    }
+    .two-btn{
+        align-items: center;
+        justify-items: center;
+        display: flex;
+    }
+    .add-device-btn,
+    .home-btn{
+        width: 140px;
+        padding: 6px ;
+        margin: 10px 0px;
+    }
+    .spinner-registration{
+        width: auto;
+        height: auto;
+    }
+    .container-active{
+        margin: 10vw;
+    }
+
+
+}
+@media screen and (min-width: 481px) and (max-width: 768px ){
+    .container-welcome{
+        margin: 7vw;
+    }
+    .container_welcome div h1{
+        font-size: 55px;
+    }
+    .container_welcome div img{
+        width: 114px;
+    }
+    .container_welcome div p{
+        font-size: 20px;
+    }
+    .container_welcome div button{
+        padding: 5px 40px;
+    }
+    .container-login{
+        margin-left: 5vw;
+        margin-right: 5vw;
+        flex-direction: column;
+        align-items: center;
+    }
+    .container-login h1{
+        font-size: 50px;
+        margin-bottom: 4rem;
+    }
+    .container-login ul{
+        width: 400px;
+    }
+    .container-register{
+        flex-direction: column;
+        justify-items: center;
+        align-items: center;
+    }
+    .register-text{
+        font-size: 30px;
+    }
+    .register-btn{
+        font-size: 20px;
+    }
+    .logo_black{
+        width: 80px;
+    }
+    .container-active{
+        justify-content: left;
+    }
+    .container-active div{
+        width: auto;
+    }
+    .guide-registraion{
+        width: 200px;
+    }
+    .add-device-btn,
+    .home-btn{
+        width: 120px;
+        padding: 6px ;
+        margin: 10px 0px;
+    }
+    .add-device-btn{
+        margin-left: 2px;
+    }
+    .spinner-registration{
+        width: auto;
+        height: auto;
+    }
+}
+
+@media screen and (min-width: 769px ) and (max-width: 1023px ){
+    .container-welcome{
+        margin-left: 15vw;
+    }
+    .container-login{
+        margin-left: 5vw;
+        margin-right: 5vw;
+        flex-direction: column;
+        align-items: center;
+    }
+    .container-login h1{
+        font-size: 50px;
+        margin-bottom: 4rem;
+    }
+    .container-login ul{
+        width: 400px;
+    }
+    .container-register{
+        flex-direction: column;
+        justify-items: center;
+        align-items: center;
+    }
+    .register-text{
+        font-size: 30px;
+    }
+    .register-btn{
+        font-size: 20px;
+    }
+    .logo_black{
+        width: 90px;
+    }
+}
+@media screen and (min-width: 1024px ) and (max-width: 1280px){
+    .container-welcome{
+        margin-left: 15vw;
+    }
+    .container-login{
+        margin-right: 10vw;
+        margin-left: 10vw;
+    }
+    .container-login h1{
+        font-size: 50px;
+    }
+
+}
+@media screen and (min-width: 1281px){
+    .container-welcome{
+        margin-left: 15vw;
+    }
+    .container-login h1{
+        margin-right: 10vw;
+    }
 }
